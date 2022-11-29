@@ -43,3 +43,10 @@ class WorkoutItem(models.Model):
     exercise = models.ForeignKey(Exercise, on_delete=models.PROTECT)
     reps = models.PositiveSmallIntegerField()
     sets = models.PositiveSmallIntegerField()
+
+    def __str__(self) -> str:
+        fullname = self.workout + " " + self.exercise
+        return fullname
+
+    class Meta:
+        ordering = ['workout']
